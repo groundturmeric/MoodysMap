@@ -404,19 +404,21 @@ DRAW AXES
 
     function swarm3(data) {
 
-
-        basemap
-            .transition()
-            .duration(1000)
-            .ease(d3.easeLinear)
-            .style("opacity", 0)
-
         xAxis
             .transition()
             .call(d3.axisBottom().scale(xScaleGlobal))
             .duration(1000)
             .ease(d3.easeLinear)
             .style("opacity", 1)
+
+        
+        basemap
+            .transition()
+            .duration(1000)
+            .ease(d3.easeLinear)
+            .style("opacity", 0)
+
+
 
 
 
@@ -471,8 +473,7 @@ DRAW AXES
             /* TOOLTIP */
 
 
-            selectAll("Circle").on("mouseover", function (e, d) {
-
+            u.selectAll("Circle").on("mouseover", function (e, d) {
                 let x = +d3.select(this).attr("cx") + 20;
                 let y = +d3.select(this).attr("cy") - 10;
 
